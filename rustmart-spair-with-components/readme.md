@@ -1,0 +1,3 @@
+# RustMart Spair Using Components as Pages
+
+This is just an experiment to see how multi-component affect on the size of the `.wasm` file. The implementation shows that using Spair's component as a page is not good idea, at least with Spair 0.0.4 because of the limitation cause by the router and the difficulty of sending a `non-Copy` object from component to component (it is easier if you are willing to create a method just for forwarding objects to another component or the objects are `Copy`).
