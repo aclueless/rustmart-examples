@@ -7,7 +7,7 @@ Originally, I only intended to port the RustMart example from Yew, just as a lit
 | [rustmart-yew-example] | 477.7kb         |
 | rustmart-spair         | 173.6kb         |
 
-I wonder why? I guess that the **first reason** is the maturity of the frameworks. Spair is younger and has fewer features than Yew. Spair router does not have the same functionality as Yew router. As Spair become more mature in the future (I hope so), it may produce bigger binary bundle.
+I wonder why? I guess that the **first reason** is the maturity of the frameworks. Spair is younger and has fewer features than Yew. Spair router does not have the same functionality as Yew router. As Spair become more mature in the future, it may produce bigger binary bundle.
 
 Any other reason? The original implementation in Yew has many components. Spair only use one component and split the code using spair::Render. Maybe the number of components affect the size?
 
