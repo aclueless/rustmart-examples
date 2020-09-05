@@ -1,6 +1,6 @@
 This repo contains 3 implementations of RustMart examples, based on the original implementation: [rustmart-yew-example].
 
-Originally, I only intended to port the RustMart example from Yew, just as a little experiment, to Spair. I found that Spair app produces `.wasm` file that is more than 50% smaller than the Yew app, which is not in my expectation:
+Originally, I only intended to port the RustMart example from Yew, just as a little experiment, to Spair. I found that the size of `.wasm` file of the Spair app is more than 50% smaller than the Yew app, which is not in my expectation:
 
 | Implemenation          | Size of `.wasm` |
 | ---------------------- | --------------- |
@@ -19,6 +19,8 @@ So, I modified the two implementations a bit so that the Yew version use some fu
 | rustmart-yew-fewer-components  | 440.7kB         | App, Home, ProductDetail, RouterAnchor (**)                            |
 | rustmart-spair                 | 173.6kB         | App                                                                    |
 | rustmart-spair-with-components | 187.2kB         | App, Home, ProductDetail                                               |
+
+*Compliled with Rust 1.46.0*
 
 (*) *Please note that `yew::Component` and `spair::Component` are NOT the same.*
 
