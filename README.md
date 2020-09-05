@@ -1,6 +1,6 @@
 This repo contains 3 implementations of RustMart examples, based on the original implementation: [rustmart-yew-example].
 
-Originally, I only intended to port the RustMart example from Yew, just as a little experiment, to Spair. I found that Spair produces `.wasm` file that is more than 50% smaller than the Yew's version, which is not in my expectation:
+Originally, I only intended to port the RustMart example from Yew, just as a little experiment, to Spair. I found that Spair app produces `.wasm` file that is more than 50% smaller than the Yew app, which is not in my expectation:
 
 | Implemenation          | Size of `.wasm` |
 | ---------------------- | --------------- |
@@ -11,7 +11,7 @@ I wonder why? I guess that the **first reason** is the maturity of the framework
 
 Any other reason? The original implementation in Yew has many components. Spair only use one component and split the code using spair::Render. Maybe the number of components affect the size?
 
-So, I decided to modify the two implementations a bit so that the Yew version use some functions instead of components, and the Spair version use components as pages. And here are sizes of `.wasm` files:
+So, I modified the two implementations a bit so that the Yew version use some functions instead of components, and the Spair version use components as pages. And here are sizes of `.wasm` files:
 
 | Implemenation                  | Size of `.wasm` | Components (*)                                                         |
 | ------------------------------ | --------------- | ---------------------------------------------------------------------- |
@@ -20,7 +20,7 @@ So, I decided to modify the two implementations a bit so that the Yew version us
 | rustmart-spair                 | 173.6kB         | App                                                                    |
 | rustmart-spair-with-components | 187.2kB         | App, Home, ProductDetail                                               |
 
-(*) *Please note that `yew::Component` and `spair::Component` are not the same.*
+(*) *Please note that `yew::Component` and `spair::Component` are NOT the same.*
 
 (**) *`Navbar` and `ProductCard` were converted to functions. I am not a user of Yew, so I miserably failed when converting `AtcButton` component to a function, so I just inlined it as an element `<button>...</button>` where the button is required.*
 
