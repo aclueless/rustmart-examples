@@ -41,6 +41,14 @@ Conclusion? Either you use Yew or Spair, if your primary concern is the size of 
 | rustmart-spair                 | 160.4kB         | 
 | rustmart-spair-with-components | 168.9kB         | 
 
+## `lto=true` and `opt-level = "z"`
+
+| Implemenation                  | Size of `.wasm` | 
+| ------------------------------ | --------------- | 
+| [rustmart-yew-example]         | 374.1kB         | 
+| rustmart-yew-fewer-components  | 358.2kB         | 
+| rustmart-spair                 | 162.6kB         | 
+| rustmart-spair-with-components | 170.4kB         | 
 
 Yew: https://github.com/yewstack/yew
 
