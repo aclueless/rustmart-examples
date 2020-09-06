@@ -34,7 +34,7 @@ Conclusion? Either you use Yew or Spair, if your primary concern is the size of 
 
 # Optimizations
 
-| Implemenation                  | default | `lto=true` | `lto=true`, `opt-level='s'` | `lto=true`, `opt-level='z'` |
+| Implemenation                  | release | `lto=true` | `lto=true`, `opt-level='s'` | `lto=true`, `opt-level='z'` |
 | ------------------------------ | ------- | ---------- | ------------------------- | ------------------------- |
 | [rustmart-yew-example]         | 477.7   | 477.8      | 387.8                     | 374.1                     |
 | rustmart-yew-fewer-components  | 440.7   | 441.7      | 367.5                     | 358.2                     |
