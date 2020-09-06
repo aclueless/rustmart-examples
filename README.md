@@ -32,23 +32,19 @@ Using Spair, with 2 more components, 13.6kB was added to the `.wasm` file. (Simi
 
 Conclusion? Either you use Yew or Spair, if your primary concern is the size of `.wasm` file, then you may want to avoid using components where possible.
 
-## `lto=true` and `opt-level = "s"`
+# Optimizations
 
-| Implemenation                  | Size of `.wasm` | 
-| ------------------------------ | --------------- | 
-| [rustmart-yew-example]         | 387.8kB         | 
-| rustmart-yew-fewer-components  | 367.5kB         | 
-| rustmart-spair                 | 160.4kB         | 
-| rustmart-spair-with-components | 168.9kB         | 
+| Implemenation                  | default | `lto=true` | `lto=true`, opt-level='s' | `lto=true`, opt-level='z' |
+| ------------------------------ | ------- | ---------- | ------------------------- | ------------------------- |
+| [rustmart-yew-example]         | 477.7   | 477.8      | 387.8                     | 374.1                     |
+| rustmart-yew-fewer-components  | 440.7   | 441.7      | 367.5                     | 358.2                     |
+| rustmart-spair                 | 173.6   | 173.6      | 160.4                     | 162.6                     |
+| rustmart-spair-with-components | 187.2   | 187.2      | 168.9                     | 170.4                     |
 
-## `lto=true` and `opt-level = "z"`
+*Note that change `opt-level` from = `'s'` to `'z'`, Yew's apps continue to decrease in sizes while Spair's apps fail to optimize more in sizes.*
 
-| Implemenation                  | Size of `.wasm` | 
-| ------------------------------ | --------------- | 
-| [rustmart-yew-example]         | 374.1kB         | 
-| rustmart-yew-fewer-components  | 358.2kB         | 
-| rustmart-spair                 | 162.6kB         | 
-| rustmart-spair-with-components | 170.4kB         | 
+
+So, by optimizing as much as possible, Yew's apps only bigger than Spair's apps about 200kB.
 
 Yew: https://github.com/yewstack/yew
 
