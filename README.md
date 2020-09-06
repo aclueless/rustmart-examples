@@ -32,6 +32,16 @@ Using Spair, with 2 more components, 13.6kB was added to the `.wasm` file. (Simi
 
 Conclusion? Either you use Yew or Spair, if your primary concern is the size of `.wasm` file, then you may want to avoid using components where possible.
 
+## `lto=true` and `opt-level = "s"`
+
+| Implemenation                  | Size of `.wasm` | 
+| ------------------------------ | --------------- | 
+| [rustmart-yew-example]         | 387.8kB         | 
+| rustmart-yew-fewer-components  | 367.5kB         | 
+| rustmart-spair                 | 160.4kB         | 
+| rustmart-spair-with-components | 168.9kB         | 
+
+
 Yew: https://github.com/yewstack/yew
 
 Spair: https://github.com/aclueless/spair
