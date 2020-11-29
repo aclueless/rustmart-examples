@@ -2,7 +2,7 @@ use spair::prelude::*;
 
 pub struct Navbar;
 impl spair::Render<crate::App> for Navbar {
-    fn render(self, nodes: spair::Nodes<crate::App>) -> spair::Nodes<crate::App> {
+    fn render(self, nodes: spair::Nodes<crate::App>) {
         nodes.div(|d| {
             d.static_attributes()
                 .class("navbar")
@@ -22,6 +22,6 @@ impl spair::Render<crate::App> for Navbar {
                         .nodes()
                         .render(&format!("${:.2}", state.cart_value()));
                 });
-        })
+        });
     }
 }

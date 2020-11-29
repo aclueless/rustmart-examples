@@ -12,7 +12,7 @@ impl spair::Routes<crate::App> for Route {
         }
     }
 
-    fn routing(location: spair::Location, comp: &spair::Comp<crate::App>) {
+    fn routing(location: spair::web_sys::Location, comp: &spair::Comp<crate::App>) {
         const PRODUCT_HASH: &'static str = "#product/";
         let route = location
             .hash()

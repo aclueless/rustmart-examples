@@ -8,6 +8,7 @@ edition = "2018"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-spair = "0.0.4"
+#spair = "0.0.4"
+spair = { path = "../../spair", features = ["fetch-json"] }
 wasm-bindgen = "0.2"
 serde = { version = "1.0", features = ["derive"] }

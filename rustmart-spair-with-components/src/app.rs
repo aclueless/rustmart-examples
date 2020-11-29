@@ -15,6 +15,16 @@ pub struct App {
 }
 
 impl App {
+    pub fn new(comp: spair::Comp<Self>) -> Self {
+        Self {
+            data: Data {
+                cart_products: Vec::new(),
+            },
+            comp,
+            page: Pages::None,
+        }
+    }
+
     pub fn set_route(&mut self, route: Route) {
         match route {
             Route::HomePage => {
@@ -52,19 +62,7 @@ impl App {
 
 impl spair::Component for App {
     type Routes = Route;
-
-    fn with_comp(comp: spair::Comp<Self>) -> Option<Self> {
-        Some(Self {
-            data: Data {
-                cart_products: Vec::new(),
-            },
-            comp,
-            page: Pages::None,
-        })
-    }
-
-    fn render(&self, c: spair::Context<Self>) {
-        let (_, element) = c.into_parts();
+    fn render(&self, element: spair::Element<Self>) {
         element.nodes().render(Navbar).div(|d| match &self.page {
             Pages::Home(comp) => d.component(comp),
             Pages::ProductDetail(comp) => d.component(comp),

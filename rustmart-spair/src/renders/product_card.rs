@@ -11,16 +11,14 @@ impl spair::ListItem<crate::App> for Product {
             .class("product_card_container")
             .nodes()
             .a(|a| {
-                a.static_attributes()
+                a.href(&Route::ProductDetail(self.id))
+                    .static_attributes()
                     .class("product_card_anchor")
-                    .attributes()
-                    .href(&Route::ProductDetail(self.id))
                     .nodes()
                     .img(|i| {
-                        i.static_attributes()
-                            .class("product_card_image")
-                            .attributes()
-                            .src(&self.image);
+                        i.src(&self.image)
+                            .static_attributes()
+                            .class("product_card_image");
                     })
                     .div(|d| {
                         d.static_attributes()

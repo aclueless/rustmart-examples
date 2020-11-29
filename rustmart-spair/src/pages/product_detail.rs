@@ -5,7 +5,7 @@ use spair::prelude::*;
 
 pub struct ProductDetail;
 impl spair::Render<crate::App> for ProductDetail {
-    fn render(self, nodes: spair::Nodes<crate::App>) -> spair::Nodes<crate::App> {
+    fn render(self, nodes: spair::Nodes<crate::App>) {
         let state = nodes.state();
         nodes.match_if(|arm| {
             match (
@@ -16,21 +16,20 @@ impl spair::Render<crate::App> for ProductDetail {
                 (None, Some(product)) => arm.render_on_arm_index(1).render(product).done(),
                 (None, None) => arm.render_on_arm_index(2).render(Spinner).done(),
             }
-        })
+        });
     }
 }
 
 impl spair::Render<crate::App> for &Product {
-    fn render(self, nodes: spair::Nodes<crate::App>) -> spair::Nodes<crate::App> {
+    fn render(self, nodes: spair::Nodes<crate::App>) {
         nodes.div(|d| {
             d.static_attributes()
                 .class("product_detail_container")
                 .nodes()
                 .img(|i| {
-                    i.static_attributes()
-                        .class("product_detail_image")
-                        .attributes()
-                        .src(&self.image);
+                    i.src(&self.image)
+                        .static_attributes()
+                        .class("product_detail_image");
                 })
                 .div(|d| {
                     d.static_attributes()
@@ -52,6 +51,6 @@ impl spair::Render<crate::App> for &Product {
                         .render(self.price);
                 })
                 .render(AtcButton(self.clone()));
-        })
+        });
     }
 }

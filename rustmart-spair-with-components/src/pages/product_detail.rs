@@ -26,8 +26,7 @@ impl ProductDetail {
 
 impl spair::Component for ProductDetail {
     type Routes = ();
-    fn render(&self, c: spair::Context<Self>) {
-        let (_comp, element) = c.into_parts();
+    fn render(&self, element: spair::Element<Self>) {
         element.nodes().match_if(|arm| {
             match (self.error_message.as_ref(), self.product.as_ref()) {
                 (Some(error_message), _) => arm
@@ -56,7 +55,7 @@ impl spair::WithParentComp for ProductDetail {
 }
 
 impl spair::Render<ProductDetail> for &Product {
-    fn render(self, nodes: spair::Nodes<ProductDetail>) -> spair::Nodes<ProductDetail> {
+    fn render(self, nodes: spair::Nodes<ProductDetail>) {
         let comp = nodes.comp();
         let p = self.clone();
         let handler = comp.handler(move |state| {
@@ -72,10 +71,9 @@ impl spair::Render<ProductDetail> for &Product {
                 .class("product_detail_container")
                 .nodes()
                 .img(|i| {
-                    i.static_attributes()
-                        .class("product_detail_image")
-                        .attributes()
-                        .src(&self.image);
+                    i.src(&self.image)
+                        .static_attributes()
+                        .class("product_detail_image");
                 })
                 .div(|d| {
                     d.static_attributes()
@@ -97,6 +95,6 @@ impl spair::Render<ProductDetail> for &Product {
                         .render(self.price);
                 })
                 .render(AtcButton(handler));
-        })
+        });
     }
 }

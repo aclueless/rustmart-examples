@@ -71,20 +71,7 @@ impl App {
 
 impl spair::Component for App {
     type Routes = Route;
-
-    fn with_comp(_: spair::Comp<Self>) -> Option<Self> {
-        Some(Self {
-            data: Data {
-                cart_products: Vec::new(),
-                all_products: Vec::new(),
-                selected_product: None,
-            },
-            error_message: None,
-        })
-    }
-
-    fn render(&self, c: spair::Context<Self>) {
-        let (_, element) = c.into_parts();
+    fn render(&self, element: spair::Element<Self>) {
         element
             .nodes()
             .render(Navbar)

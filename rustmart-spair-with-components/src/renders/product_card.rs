@@ -21,17 +21,16 @@ impl spair::ListItem<crate::pages::Home> for Product {
             .class("product_card_container")
             .nodes()
             .a(|a| {
-                a.static_attributes()
-                    .class("product_card_anchor")
-                    .attributes()
+                a
                     // a workaround, because href only accept App::Routes, but we are actually in Home
                     .href_str(&Route::ProductDetail(self.id).url())
+                    .static_attributes()
+                    .class("product_card_anchor")
                     .nodes()
                     .img(|i| {
-                        i.static_attributes()
-                            .class("product_card_image")
-                            .attributes()
-                            .src(&self.image);
+                        i.src(&self.image)
+                            .static_attributes()
+                            .class("product_card_image");
                     })
                     .div(|d| {
                         d.static_attributes()

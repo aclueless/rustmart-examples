@@ -25,8 +25,7 @@ impl Home {
 impl spair::Component for Home {
     type Routes = ();
 
-    fn render(&self, c: spair::Context<Self>) {
-        let (_comp, element) = c.into_parts();
+    fn render(&self, element: spair::Element<Self>) {
         element.nodes().match_if(|arm| {
             match (self.error_message.as_ref(), self.all_products.is_empty()) {
                 (Some(error_message), _) => arm

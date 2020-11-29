@@ -3,7 +3,7 @@ use spair::prelude::*;
 
 pub struct Home;
 impl spair::Render<crate::App> for Home {
-    fn render(self, nodes: spair::Nodes<crate::App>) -> spair::Nodes<crate::App> {
+    fn render(self, nodes: spair::Nodes<crate::App>) {
         let state = nodes.state();
         nodes.match_if(|arm| {
             match (
@@ -21,6 +21,6 @@ impl spair::Render<crate::App> for Home {
                     })
                     .done(),
             }
-        })
+        });
     }
 }

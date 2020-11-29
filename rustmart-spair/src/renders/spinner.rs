@@ -1,7 +1,7 @@
 use spair::prelude::*;
 pub struct Spinner;
 impl spair::Render<crate::App> for Spinner {
-    fn render(self, nodes: spair::Nodes<crate::App>) -> spair::Nodes<crate::App> {
+    fn render(self, nodes: spair::Nodes<crate::App>) {
         nodes.div(|d| {
             d.static_attributes()
                 .class("loading_spinner_container")
@@ -13,6 +13,6 @@ impl spair::Render<crate::App> for Spinner {
                         .nodes()
                         .r#static("Loading ...");
                 });
-        })
+        });
     }
 }

@@ -3,5 +3,6 @@
 members = [
     "rustmart-spair",
     "rustmart-spair-with-components",
+    "rustmart-yew",
     "rustmart-yew-fewer-components",
 ]
